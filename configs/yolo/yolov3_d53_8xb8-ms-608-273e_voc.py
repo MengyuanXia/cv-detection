@@ -161,7 +161,7 @@ test_dataloader = val_dataloader
 val_evaluator = dict(type='VOCMetric', metric='mAP', eval_mode='11points')
 test_evaluator = val_evaluator
 
-train_cfg = dict(max_epochs=28, val_interval=7)
+train_cfg = dict(max_epochs=15, val_interval=3)
 
 optim_wrapper = dict(
     type='OptimWrapper',
@@ -174,12 +174,12 @@ param_scheduler = [
     dict(type='MultiStepLR', by_epoch=True, milestones=[218, 246], gamma=0.1)
 ]
 
-default_hooks = dict(checkpoint=dict(type='CheckpointHook', interval=7))
+default_hooks = dict(checkpoint=dict(type='CheckpointHook', interval=3))
 
 auto_scale_lr = dict(base_batch_size=64)
 
 # log_config = dict(
-#     interval=7,
+#     interval=3,
 #     hooks=[
 #         dict(type='TextLoggerHook'),
 #         dict(type='TensorboardLoggerHook')
